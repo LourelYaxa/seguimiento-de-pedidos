@@ -1,0 +1,29 @@
+*{
+    margin: 0 auto;
+    width: 100%;
+}
+body{
+    background: url("https://www.toptal.com/designers/subtlepatterns/patterns/footer_lodyas.png")!important;
+    font-family: sans-serif;
+    width: 100%;
+    margin: 0 auto;
+}
+.container-fluid{
+    margin: 0 auto;
+}
+
+.container{
+    padding: 5px;
+}
+.title{
+    color: #ffffff;
+    text-align: center;
+    padding: 30px;
+}
+.thead-blue{
+    background: #17a2b8!important;
+    color: #ffffff;
+}
+.order{
+    padding: 15px 0px;
+}
