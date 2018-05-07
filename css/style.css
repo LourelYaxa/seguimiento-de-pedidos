@@ -27,3 +27,7 @@ body{
 .order{
     padding: 15px 0px;
 }
+
+.table thead th {
+    vertical-align: top !important;
+}
