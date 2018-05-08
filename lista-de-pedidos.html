@@ -1,82 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Seguimiento a mi pedido</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="css/style.css" type='text/css'>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" type='text/css'>
-    </head>
-    <body>
-        <header class="header">
-            <h1 class="title">Seguimiento a mi compra</h1>
-        </header>
-        <div class="container-fluid">
-            <div class="container">
-                <div class="col-12 p-3 p-md-5 bg-light border border-white">
-                    <h3>Mis pedidos</h3>
-                    <p>Conoce el estado actual de todas tus compras</p>
-                    <hr>
-                    <!-- Información de pedido -->
-                    <div class="order">
-                        <h5>Pedido No. {No. de pedido}</h5>
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
-                              <thead class="thead-blue">
-                                <tr>
-                                  <th scope="col">Artículo</th>
-                                  <th scope="col">Estado</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">{Nombre del artículo}</th>
-                                  <td>{estado}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">{Nombre del artículo}</th>
-                                  <td>{estado}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">{Nombre del artículo}</th>
-                                  <td>{estado}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Información de pedido -->
-                    <!-- Información de pedido -->
-                    <div class="order">
-                        <h5>Pedido No. {No. de pedido}</h5>
-                        <div class="table-responsive-sm">
-                            <table class="table table-hover">
-                              <thead class="thead-blue">
-                                <tr>
-                                  <th scope="col">Artículo</th>
-                                  <th scope="col">Estado</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row">{Nombre del artículo}</th>
-                                  <td>{estado}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">{Nombre del artículo}</th>
-                                  <td>{estado}</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">{Nombre del artículo}</th>
-                                  <td>{estado}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- End Información de pedido -->
+<head>
+    <title>Seguimiento de pedido</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="/css/style.css" type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          type='text/css'>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"
+            integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR"
+            crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0 auto;
+            width: 100%;
+            font-family: sans-serif;
+        }
+
+        body {
+            background: url("https://www.toptal.com/designers/subtlepatterns/patterns/footer_lodyas.png") !important;
+            font-family: sans-serif;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .container-fluid {
+            margin: 0 auto;
+        }
+
+        .container {
+            padding: 5px;
+        }
+
+        .title {
+            color: #ffffff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .thead-blue {
+            background: #17a2b8 !important;
+            color: #ffffff;
+        }
+
+        .order {
+            padding: 15px 0px;
+        }
+
+        .table thead th {
+            vertical-align: top !important;
+        }
+
+        .order-status {
+            text-align: center;
+        }
+
+        .status-icon {
+            padding: 15px;
+            font-size: 4em;
+            border-radius: 5px;
+        }
+
+        .text-status {
+            font-size: 0.8em;
+            line-height: 1.2em;
+            margin: 10px 0px;
+        }
+
+        .order-container {
+            margin: 10px 0px;
+        }
+
+        .status {
+            text-align: center;
+        }
+
+        .text-footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #ffffff;
+        }
+
+        .row {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <h1 class="title">Seguimiento de la compra No. {{id_order}}</h1>
+</header>
+<div class="container-fluid">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 p-3 p-md-5 bg-light bd-example">
+                <h3>Estados de tu compra</h3>
+                <p>Conoce el estado actual de tu pedido</p>
+                <hr>
+                <div class="row status">
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status yaxa-importacion"><i
+                            class="status-icon fas fa-globe btn-success" data-toggle="tooltip"
+                            title="Yaxa Importación"></i>
+                        <p class="text-status">Yaxa Importación</p></div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status despegando-estados-unidosa-casa"><i
+                            class="status-icon fab fa-avianex btn-success" data-toggle="tooltip"
+                            title="Despegando de USA a casa"></i>
+                        <p class="text-status">Despegando de USA a casa</p></div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status camino-a-casa"><i
+                            class="status-icon fas fa-user-circle btn-success" data-toggle="tooltip"
+                            title="Camino a casa"></i>
+                        <p class="text-status">Camino a casa</p></div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status entregado"><i
+                            class="status-icon fas fa-check-circle btn-success" data-toggle="tooltip"
+                            title="Entregado"></i>
+                        <p class="text-status">Entregado</p></div>
                 </div>
             </div>
+            <div class="col-md-6 p-3 p-md-5 bg-light border border-white">
+                <h3>Otros posibles casos</h3>
+                <p>Contáctanos si tu pedido corresponde a estos estados</p>
+                <hr>
+                <div class="row status">
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status cerrado"><i
+                            class="status-icon fas fa-times-circle btn-danger" data-toggle="tooltip"
+                            title="Cerrado"></i>
+                        <p class="text-status">Cerrado</p></div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status cancelado"><i
+                            class="status-icon fas fa-exclamation-circle btn-warning" data-toggle="tooltip"
+                            title="Cancelado"></i>
+                        <p class="text-status">Cancelado</p></div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status pago-devuelto"><i
+                            class="status-icon fab fa-bitcoin btn-success" data-toggle="tooltip"
+                            title="Pago Devuelto"></i>
+                        <p class="text-status">Pago Devuelto</p></div>
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status proceso-devolucion"><i
+                            class="status-icon fas fa-clock btn-warning" data-toggle="tooltip"
+                            title="Proceso de Devolución"></i>
+                        <p class="text-status">Proceso de Devolución</p></div>
+                </div>
+            </div>
+
+
+            <div class="col-12 p-3 p-md-5 bg-light border border-white order-container">
+                <h3>Mis pedidos</h3>
+                <p>Detalle de mis compras</p>
+                <hr>
+                <!-- Información de pedido -->
+
+                <div class="order">
+                    <h5>Pedidos en proceso </h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-blue">
+                            <tr>
+                                <th scope="col">Artículo</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Operador logístico</th>
+                                <th scope="col">Tracking URL</th>
+                                <th scope="col">Guia</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for order in orders %}
+                            {% if order.status_id != 'Entregado' %}
+                            <tr>
+                                <th scope="row">{{order.nombre}}</th>
+                                <td class="status">{{order.status_id}}</td>
+                                {% if order.status_id == 'TU YAXA PEDIDO ESTA CAMINO A CASA' %}
+                                <td>{{order.operadorlogistico }}</td>
+                                <td><a href="{{order.track_url}}">{{order.track_url}}</a></td>
+                                <td>{{order.guia}}</td>
+                            </tr>
+                            {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- End Información de pedido -->
+                <!-- Información de pedido -->
+                <div class="order">
+                    <h5>Pedidos entregados</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-blue">
+                            <tr>
+                                <th scope="col">Artículo</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for order in orders %}
+                            {% if order.status_id == 'Entregado' %}
+                            <tr>
+                                <th scope="row">{{order.nombre}}</th>
+                                <td>{{order.status_id}}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- End Información de pedido -->
         </div>
-    </body>
+    </div>
+</div>
+<footer>
+    <div class="row">
+        <div class="col-12">
+            <p class="text-footer">© 2018 Yaxa Colombia S.A.S. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+</body>
 </html>
