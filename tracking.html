@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        Seguimiento a mi pedido
+    </title>
+    <link rel="stylesheet" href="/css/style.css" type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          type='text/css'>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"
+            integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR"
+            crossorigin="anonymous"></script>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var ws;
+
+
+        $().ready(function () {
+
+            $("#btnConnect").click(function () {
+
+                $("#socket_status").text("conectando");
+
+                var ws_url = "wss://" + location.host + "/statusguia/websocket_handler";
+                ws = new WebSocket(ws_url);
+                ws.onopen = function () {
+                    $("#socket_status").text("conectado");
+                    $("#btnConnect").hide();
+                };
+                ws.onmessage = function (evt) {
+                    $("#response_ws").html(evt.data);
+                    $("html, body").stop().animate({scrollTop: $("#response_ws").offset().top}, 500, 'swing');
+                    $("#socket_status").text("");
+                };
+                ws.onerror = function (evt) {
+                    $("#socket_status").text(evt.message);
+                };
+                ws.onclose = function () {
+                    $("#socket_status").text("desconectado");
+                    $("#btnConnect").show();
+                };
+            });
+            $("#btnConnect").click();
+            $("#btnDisconnect").hide();
+            $("#btnDisconnect").click(function () {
+                ws.close();
+            });
+
+            $("#btn-order-number").click(function () {
+                ws.send("id_order=" + $("#order-number").val());
+            });
+
+        });
+    </script>
+</head>
+<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<style>
+    * {
+        margin: 0 auto;
+        width: 100%;
+        font-family: sans-serif;
+    }
+
+    body {
+        background: url("https://www.toptal.com/designers/subtlepatterns/patterns/footer_lodyas.png") !important;
+        font-family: sans-serif;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .container-fluid {
+        margin: 0 auto;
+    }
+
+    .container {
+        padding: 5px;
+    }
+
+    .title {
+        color: #ffffff;
+        text-align: center;
+        padding: 30px;
+    }
+
+    .thead-blue {
+        background: #17a2b8 !important;
+        color: #ffffff;
+    }
+
+    .order {
+        padding: 15px 0px;
+    }
+
+    .table thead th {
+        vertical-align: top !important;
+    }
+
+    .order-status {
+        text-align: left;
+    }
+
+    .status-icon {
+        padding: 15px;
+        font-size: 4em;
+        border-radius: 5px;
+    }
+
+    .text-status {
+        font-size: 0.8em;
+        line-height: 1.2em;
+        margin: 10px 0px;
+        font-weight: bold;
+    }
+
+    .order-container {
+        margin: 10px 0px;
+    }
+
+    .status {
+        text-align: center;
+    }
+
+    .text-footer {
+        text-align: center;
+        font-size: 0.8em;
+        color: #ffffff;
+    }
+
+    .row {
+        margin: 5px;
+    }
+
+    @media only screen and (max-width: 575px) {
+        .order-status {
+            text-align: left;
+            display: -webkit-inline-box;
+            padding: 0px 20px 0px 0px;
+        }
+
+        .status-icon {
+            padding: 5px;
+            font-size: 2em;
+            border-radius: 2px;
+        }
+
+        .text-status {
+            font-size: 0.8em;
+            line-height: 1.2em;
+            margin: 10px 0px;
+            padding: 0px 10px;
+            font-weight: bold;
+        }
+    }
+
+    @media only screen and (max-width: 991px) and (min-width: 768px) {
+        .status-icon {
+            padding: 10px;
+            font-size: 3em;
+            border-radius: 3px;
+        }
+
+        .order-status {
+            text-align: left;
+            padding: 0px 10px;
+        }
+
+        .text-status {
+            font-size: 0.6em;
+            line-height: 1.2em;
+            margin: 10px 0px;
+            font-weight: bold;
+        }
+    }
+</style>
+</link>
+</meta>
+
+<div hidden>
+    <div>
+        <div>
+            <button id="btnConnect">Connect</button>
+        </div>
+        <div>
+            <button id="btnDisconnect">Disconnect</button>
+        </div>
+        <div id="socket_status">&nbsp;</div>
+        <div>
+            <button id="testing">cargar cuenta</button>
+        </div>
+    </div>
+</div>
+
+<body>
+<header class="header">
+    <h1 class="title">
+        Seguimiento a mi compra
+    </h1>
+</header>
+<div class="container-fluid">
+    <div class="container">
+        <div class="col-12 col-md-6 col-sm-10 p-3 p-md-5 bg-light border border-white" method="GET">
+            <h3>
+                Ingresa los siguientes datos
+            </h3>
+            <p>
+                Conoce el estado actual de todas tus compras
+            </p>
+            <hr>
+            <div class="form-group">
+                <label for="order-number">
+                    Número de pedido
+                </label>
+                <input class="form-control" id="order-number" name="id_order" placeholder="Número de pedido"
+                       type="text"/>
+            </div>
+            <button id="btn-order-number" class="btn btn-block btn-info btn-lg">
+                Encontrar mi pedido
+            </button>
+            </hr>
+        </div>
+        <div id="response_ws">&nbsp;</div>
+
+    </div>
+</div>
+</body>
