@@ -1,0 +1,230 @@
+<div class="container-fluid container-orders">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 p-3 p-md-5 bg-light bd-example">
+                <h3>Estados de tu compra</h3>
+                <p>Conoce el estado actual de tu pedido</p>
+                <hr>
+                <div class="row status">
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status yaxa-importacion"><i
+                            class="status-icon fas fa-globe btn-success" data-toggle="tooltip"
+                            title="Yaxa Importación"></i>
+                        <p class="text-status">Yaxa Importación</p></div>
+
+                        {% macro Yaxa_Importación() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status yaxa-importacion"><i
+                            class="status-icon fas fa-globe btn-success" data-toggle="tooltip"
+                            title="Yaxa Importación"></i>
+                        <p class="text-status">Yaxa Importación</p>
+                        {%- endmacro %}
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status despegando-estados-unidosa-casa"><i
+                            class="status-icon fab fa-avianex btn-success" data-toggle="tooltip"
+                            title="Despegando de USA a casa"></i>
+                        <p class="text-status">Despegando de USA a casa</p></div>
+
+                        {% macro Despegando_de_USA_a_casa() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status despegando-estados-unidosa-casa"><i
+                            class="status-icon fab fa-avianex btn-success" data-toggle="tooltip"
+                            title="Despegando de USA a casa"></i>
+                        <p class="text-status">Despegando de USA a casa</p>
+                        {%- endmacro %}
+
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status camino-a-casa"><i
+                            class="status-icon fas fa-user-circle btn-success" data-toggle="tooltip"
+                            title="Camino a casa"></i>
+                        <p class="text-status">Camino a casa</p></div>
+
+                        {% macro Camino_a_casa() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status camino-a-casa"><i
+                            class="status-icon fas fa-user-circle btn-success" data-toggle="tooltip"
+                            title="Camino a casa"></i>
+                        <p class="text-status">Camino a casa</p>
+                        {%- endmacro %}
+
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status entregado"><i
+                            class="status-icon fas fa-check-circle btn-success" data-toggle="tooltip"
+                            title="Entregado"></i>
+                        <p class="text-status">Entregado</p></div>
+
+                        {% macro Entregado() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status entregado"><i
+                            class="status-icon fas fa-check-circle btn-success" data-toggle="tooltip"
+                            title="Entregado"></i>
+                        <p class="text-status">Entregado</p>
+                        {%- endmacro %}
+
+
+
+
+                </div>
+            </div>
+            <div class="col-md-6 p-3 p-md-5 bg-light border border-white">
+                <h3>Otros posibles casos</h3>
+                <p>Contáctanos si tu pedido corresponde a estos estados</p>
+                <hr>
+                <div class="row status">
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status cerrado"><i
+                            class="status-icon fas fa-times-circle btn-danger" data-toggle="tooltip"
+                            title="Cerrado"></i>
+                        <p class="text-status">Cerrado</p></div>
+
+                        {% macro Cerrado() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status cerrado"><i
+                            class="status-icon fas fa-times-circle btn-danger" data-toggle="tooltip"
+                            title="Cerrado"></i>
+                        <p class="text-status">Cerrado</p>
+                        {%- endmacro %}
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status cancelado"><i
+                            class="status-icon fas fa-exclamation-circle btn-warning" data-toggle="tooltip"
+                            title="Cancelado"></i>
+                        <p class="text-status">Cancelado</p></div>
+
+                        {% macro Cancelado() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status cancelado"><i
+                            class="status-icon fas fa-exclamation-circle btn-warning" data-toggle="tooltip"
+                            title="Cancelado"></i>
+                        <p class="text-status">Cancelado</p>
+                        {%- endmacro %}
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status pago-devuelto"><i
+                            class="status-icon fab fa-bitcoin btn-success" data-toggle="tooltip"
+                            title="Pago Devuelto"></i>
+                        <p class="text-status">Pago Devuelto</p></div>
+
+                        {% macro Pago_Devuelto() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status pago-devuelto"><i
+                            class="status-icon fab fa-bitcoin btn-success" data-toggle="tooltip"
+                            title="Pago Devuelto"></i>
+                        <p class="text-status">Pago Devuelto</p>
+                        {%- endmacro %}
+
+
+                    <div class="col-md-3 col-sm-3 col-xs-6 order-status proceso-devolucion"><i
+                            class="status-icon fas fa-clock btn-warning" data-toggle="tooltip"
+                            title="Proceso de Devolución"></i>
+                        <p class="text-status">Proceso de Devolución</p></div>
+
+                        {% macro Proceso_de_Devolución() -%}
+                            <class="col-md-3 col-sm-3 col-xs-6 order-status proceso-devolucion"><i
+                            class="status-icon fas fa-clock btn-warning" data-toggle="tooltip"
+                            title="Proceso de Devolución"></i>
+                        <p class="text-status">Proceso de Devolución</p>
+                        {%- endmacro %}
+
+
+
+
+                </div>
+            </div>
+
+
+            <div class="col-12 p-3 p-md-5 bg-light border border-white order-container">
+                <h3>Mis pedidos</h3>
+                <p>Detalle de mis compras</p>
+                <hr>
+                <!-- Información de pedido -->
+
+                <div class="order">
+                    <h5>Pedidos en proceso </h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-blue">
+                            <tr>
+                                <th scope="col">Artículo</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Operador logístico</th>
+                                <th scope="col">Tracking URL</th>
+                                <th scope="col">Guia</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for order in orders %}
+                            {% if order.status_id != 'Entregado' %}
+                            <tr>
+                                <th scope="row">{{order.nombre}}</th>
+
+                                {% if order.status_id == 'Camino a casa'%}
+                                <td >{{ Camino_a_casa() }}</td>
+                                {% endif %}
+
+                                {% if order.status_id == 'Yaxa Importación'%}
+                                <td >{{ Yaxa_Importación() }}</td>
+                                {% endif %}
+
+                                {% if order.status_id == 'Despegando de USA a casa' %}
+                                <td >{{ Despegando_de_USA_a_casa() }}</td>
+                                {% endif %}
+
+                                {% if order.status_id == 'Cerrado' %}
+                                <td >{{ Cerrado() }}</td>
+                                {% endif %}
+
+                                {% if order.status_id == 'Cancelado' %}
+                                <td >{{ Cancelado() }}</td>
+                                {% endif %}
+
+                                {% if order.status_id == 'Pago Devuelto' %}
+                                <td >{{ Pago_Devuelto() }}</td>
+                                {% endif %}
+
+                                {% if order.status_id == 'Proceso de Devolución' %}
+                                <td >{{ Proceso_de_Devolución() }}</td>
+                                {% endif %}
+
+
+                                <td>{{order.operadorlogistico }}</td>
+                                <td><a href="{{order.track_url}}">{{order.track_url}}</a></td>
+                                <td >{{order.guia}}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- End Información de pedido -->
+                <!-- Información de pedido -->
+                {% set table = 0   %}
+                {% for order in orders %}
+                    {% if order.status_id == 'Entregado' %}
+                    {% set table = 1    %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if table == 1 %}
+                <div class="order">
+                    <h5>Pedidos entregados</h5>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-blue">
+                            <tr>
+                                <th scope="col">Artículo</th>
+                                <th scope="col">Estado</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for order in orders %}
+                            {% if order.status_id == 'Entregado' %}
+                            <tr>
+                                <th scope="row">{{order.nombre}}</th>
+                                <td >{{ Entregado() }}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <!-- End Información de pedido -->
+        </div>
+    </div>
+</div>
