@@ -52,7 +52,7 @@
         }
 
         .order-status {
-            text-align: center;
+            text-align: left;
         }
 
         .status-icon {
@@ -65,6 +65,7 @@
             font-size: 0.8em;
             line-height: 1.2em;
             margin: 10px 0px;
+            font-weight: bold;
         }
 
         .order-container {
@@ -84,12 +85,55 @@
         .row {
             margin: 5px;
         }
+
+        @media only screen and (max-width: 575px) {
+            .order-status {
+                text-align: left;
+                display: -webkit-inline-box;
+                padding: 0px 20px 0px 0px;
+            }
+
+            .status-icon {
+                padding: 5px;
+                font-size: 2em;
+                border-radius: 2px;
+            }
+
+            .text-status {
+                font-size: 0.8em;
+                line-height: 1.2em;
+                margin: 10px 0px;
+                padding: 0px 10px;
+                font-weight: bold;
+            }
+        }
+
+        @media only screen and (max-width: 991px) and (min-width: 768px) {
+            .status-icon {
+                padding: 10px;
+                font-size: 3em;
+                border-radius: 3px;
+            }
+
+            .order-status {
+                text-align: left;
+                padding: 0px 10px;
+            }
+
+            .text-status {
+                font-size: 0.6em;
+                line-height: 1.2em;
+                margin: 10px 0px;
+                font-weight: bold;
+            }
+        }
     </style>
 </head>
 <body>
 <header class="header">
     <h1 class="title">Seguimiento de la compra No. {{id_order}}</h1>
 </header>
+<body>
 <div class="container-fluid">
     <div class="container">
 
@@ -167,8 +211,12 @@
                             {% if order.status_id != 'Entregado' %}
                             <tr>
                                 <th scope="row">{{order.nombre}}</th>
-                                <td class="status">{{order.status_id}}</td>
-                                {% if order.status_id == 'TU YAXA PEDIDO ESTA CAMINO A CASA' %}
+                                <td class="status">
+                                    <div class="order-status yaxa-importacion"><i
+                                            class="status-icon fas fa-globe btn-success" data-toggle="tooltip"
+                                            title="Yaxa Importación"></i>
+                                        <p class="text-status">Yaxa Importación</p></div>
+                                </td>
                                 <td>{{order.operadorlogistico }}</td>
                                 <td><a href="{{order.track_url}}">{{order.track_url}}</a></td>
                                 <td>{{order.guia}}</td>
